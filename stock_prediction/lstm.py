@@ -24,13 +24,9 @@ def create_dataset(dataset, look_back=1):
 # fix random seed for reproducibility
 numpy.random.seed(7)
 
-# load the dataset
+# load the dataset : samsung electronics
 dataframe = pd.read_csv('E://005930.csv', usecols=[4], engine='python', skipfooter=3)
 dataset = dataframe.values
-
-#for x in range(len(dataset)):
-#	dataset[x][0] = dataset[x][0].replace(",", "")
-
 dataset = dataset.astype('float32')
 
 # normalize the dataset
