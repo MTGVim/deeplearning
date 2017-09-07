@@ -11,7 +11,7 @@ from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2
 batch_size = 128
 num_classes = 10
 epochs = 20
-
+img_rows, img_cols = 28, 28
 
 # reference : http://enakai00.hatenablog.com/entry/2016/08/02/102917
 class NotMNIST:
@@ -76,7 +76,6 @@ class NotMNIST:
 
 mnist = NotMNIST()
 
-img_rows, img_cols = 28, 28
 x_train = np.array(mnist.train.images)
 y_train = np.array(mnist.train.labels)
 x_test = np.array(mnist.test.images)
