@@ -3,10 +3,10 @@ import os
 from sklearn.cross_validation import train_test_split
 from PIL import Image
 from keras.models import Sequential
-from keras.layers.core import Dense, Dropout, Activation, Flatten
+from keras.layers.core import Dense, Dropout, Flatten
 from keras.optimizers import RMSprop
 from keras import backend as K
-from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D, Conv2D
+from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D
 
 batch_size = 128
 num_classes = 10
@@ -91,10 +91,10 @@ else:
     x_test = x_test.reshape(x_test.shape[0], img_rows, img_cols, 1)
     input_shape = (img_rows, img_cols, 1)
 
-# VGGNET - (2-layer deleted)
+# ALEXNET
 
 model = Sequential()
-model.add(ZeroPadding2D((1, 1), input_shape=(3, 224, 224)))
+model.add(ZeroPadding2D((1, 1), input_shape=input_shape))
 model.add(Convolution2D(64, 3, 3, activation='relu'))
 model.add(ZeroPadding2D((1, 1)))
 model.add(Convolution2D(64, 3, 3, activation='relu'))
