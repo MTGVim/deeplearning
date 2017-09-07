@@ -90,6 +90,8 @@ else:
     x_test = x_test.reshape(x_test.shape[0], img_rows, img_cols, 1)
     input_shape = (img_rows, img_cols, 1)
 
+    
+# ALEXNET
 model = Sequential()
 
 model.add(Conv2D(96, kernel_size=(11, 11),
