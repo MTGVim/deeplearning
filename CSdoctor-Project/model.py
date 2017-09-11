@@ -23,6 +23,7 @@ y_train, y_test = np_utils.to_categorical(train.iloc[:,0].values), np_utils.to_c
 
 # input_shape = (none, 50000)
 input_shape = (x_train.shape[1], )
+output_shape = y_train.shape[1]
 
 # Model (3D-CNN + LSTM)
 model = Sequential()
@@ -38,12 +39,14 @@ model.add(TimeDistributed(Dropout(0.25)))
 model.add(TimeDistributed(Flatten()))
 model.add(TimeDistributed(Dense(128)))
 model.add(LSTM(50, return_sequences=False))
-model.add(Dense(nb_classes))
+model.add(Dense(output_shape))
+model.add(Activation('softmax'))
 
 model.summary()
 
+
 model.compile(optimizer='adadelta',
-              loss='sparse_categorical_crossentropy',
+              loss='categorical_crossentropy',
               metrics=['accuracy'])
 
 # Training Start
