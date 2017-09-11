@@ -24,7 +24,7 @@ y_train, y_test = np_utils.to_categorical(train.iloc[:,0].values), np_utils.to_c
 # input_shape = (none, 50000)
 input_shape = (x_train.shape[1], )
 
-# Model
+# Model (3D-CNN + LSTM)
 model = Sequential()
 model.add(Reshape(input_shape=input_shape, target_shape=(50, 10, 10, 10, 1)))
 
