@@ -12,7 +12,7 @@ from keras.utils import np_utils
 
 batch_size = 500
 epochs = 64
-np_classes = 2
+nb_classes = 2
 
 # Data parsing
 data = pd.read_csv('E://capstone/data.csv', header = None)
@@ -38,7 +38,7 @@ model.add(TimeDistributed(Dropout(0.25)))
 model.add(TimeDistributed(Flatten()))
 model.add(TimeDistributed(Dense(128)))
 model.add(LSTM(50, return_sequences=False))
-model.add(Dense(np_classes))
+model.add(Dense(nb_classes))
 
 model.summary()
 
